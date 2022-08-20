@@ -22,7 +22,7 @@ def __get_kubernetes_client(bearer_token,api_server_endpoint):
         print("TYPE :{}".format(type(e)))
         return None
 
-def __format_data_for_cluster_role(client_output):
+def __format_data_for_cluster(client_output):
         temp_dict={}
         temp_list=[]
         
@@ -44,7 +44,7 @@ def get_api_services(cluster_details,namespace="default",all_namespaces=False):
         )
         
         daemonset_list =client_api.list_api_service()
-        data=__format_data_for_cluster_role(daemonset_list)
+        data=__format_data_for_cluster(daemonset_list)
         print("list all the api services: {}".format(data))
        
 if __name__ == '__main__':
